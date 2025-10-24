@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @AppStorage("apiURL") private var apiURL = "https://leafyapi.consciousb.one/v1/chat/completions"
     var body: some View {
-        Text("Settings view")
+        Form {
+            Section {
+                TextField("https://example.com/api", text: $apiURL, prompt: Text("API URL"))
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled(true)
+                    .textContentType(.URL)
+            } header: {
+                Text("OpenRouter API URL")
+            }
+        }
     }
 }
 

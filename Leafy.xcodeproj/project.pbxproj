@@ -6,26 +6,18 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2145CDEB2EAC07E000211B43 /* proxysecret.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2145CDEA2EAC07E000211B43 /* proxysecret.txt */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		2125994C2EA7FAF5000B4779 /* Leafy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leafy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2145CDEA2EAC07E000211B43 /* proxysecret.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = proxysecret.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		21AF309A2EABDACD00147F5D /* Exceptions for "Leafy" folder in "Leafy" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Untitled.swift,
-			);
-			target = 2125994B2EA7FAF5000B4779 /* Leafy */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2125994E2EA7FAF5000B4779 /* Leafy */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				21AF309A2EABDACD00147F5D /* Exceptions for "Leafy" folder in "Leafy" target */,
-			);
 			path = Leafy;
 			sourceTree = "<group>";
 		};
@@ -45,6 +37,7 @@
 		212599432EA7FAF5000B4779 = {
 			isa = PBXGroup;
 			children = (
+				2145CDEA2EAC07E000211B43 /* proxysecret.txt */,
 				2125994E2EA7FAF5000B4779 /* Leafy */,
 				2125994D2EA7FAF5000B4779 /* Products */,
 			);
@@ -122,6 +115,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2145CDEB2EAC07E000211B43 /* proxysecret.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
