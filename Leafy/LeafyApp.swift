@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct LeafyApp: App {
@@ -13,5 +14,6 @@ struct LeafyApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: [LeafItem.self]) // swiftdataaaa
     }
 }

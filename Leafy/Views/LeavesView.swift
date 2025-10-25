@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct LeavesView: View {
+    @Environment(\.modelContext) var modelContext
+    @Query(sort: \LeafItem.leafDate, order: .reverse) var leafItems: [LeafItem]
+    
     var body: some View {
         NavigationStack {
             Form {
