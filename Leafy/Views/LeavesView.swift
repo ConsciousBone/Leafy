@@ -9,7 +9,24 @@ import SwiftUI
 
 struct LeavesView: View {
     var body: some View {
-        Text("Leaves view")
+        NavigationStack {
+            Form {
+                Section {
+                    Text("a")
+                }
+            }
+            .navigationTitle("Leaves")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        print("adding new leaf")
+                    } label: {
+                        Label("Add", systemImage: "plus")
+                    }
+                }
+            }
+        }
     }
 }
 

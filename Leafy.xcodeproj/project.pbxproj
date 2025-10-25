@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2145CDEB2EAC07E000211B43 /* proxysecret.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2145CDEA2EAC07E000211B43 /* proxysecret.txt */; };
-		2145CE482EAC309800211B43 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 2145CE472EAC309800211B43 /* OpenAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +28,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2145CE482EAC309800211B43 /* OpenAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +71,6 @@
 			);
 			name = Leafy;
 			packageProductDependencies = (
-				2145CE472EAC309800211B43 /* OpenAI */,
 			);
 			productName = Leafy;
 			productReference = 2125994C2EA7FAF5000B4779 /* Leafy.app */;
@@ -104,7 +101,6 @@
 			mainGroup = 212599432EA7FAF5000B4779;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				2145CE462EAC309800211B43 /* XCRemoteSwiftPackageReference "OpenAI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2125994D2EA7FAF5000B4779 /* Products */;
@@ -359,25 +355,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		2145CE462EAC309800211B43 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.4.6;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		2145CE472EAC309800211B43 /* OpenAI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2145CE462EAC309800211B43 /* XCRemoteSwiftPackageReference "OpenAI" */;
-			productName = OpenAI;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 212599442EA7FAF5000B4779 /* Project object */;
 }

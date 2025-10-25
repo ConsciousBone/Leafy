@@ -13,15 +13,18 @@ struct ContentView: View {
             Tab("Home", systemImage: "house") {
                 HomeView()
             }
-            Tab("Map", systemImage: "map") {
-                MapView()
-            }
             Tab("Leaves", systemImage: "leaf") {
                 LeavesView()
+            }
+            Tab("Map", systemImage: "map") {
+                MapView()
             }
             Tab("Settings", systemImage: "gear") {
                 SettingsView()
             }
+            //Tab("Test", systemImage: "") {
+            //    LeafyTestView()
+            //}
         }
     }
 }
