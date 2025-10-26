@@ -49,23 +49,27 @@ struct LeavesView: View {
                 Form {
                     ForEach(leafItems) { leaf in
                         Section {
-                            HStack {
-                                if let img = Image(leafData: leaf.leafImageData) {
-                                    img
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 48, height: 48)
-                                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                                } else { // if theres somehow no image
-                                    Image(systemName: "photo")
-                                }
-                                
-                                VStack(alignment: .leading) {
-                                    Text(leaf.leafName)
-                                        .multilineTextAlignment(.leading)
-                                    Text(leaf.leafDescription)
-                                        .multilineTextAlignment(.leading)
-                                        .foregroundStyle(.secondary)
+                            NavigationLink {
+                                LeafDetailView(leafItem: leaf)
+                            } label: {
+                                HStack {
+                                    if let img = Image(leafData: leaf.leafImageData) {
+                                        img
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(height: 48)
+                                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                                    } else { // if theres somehow no image
+                                        Image(systemName: "photo")
+                                    }
+                                    
+                                    VStack(alignment: .leading) {
+                                        Text(leaf.leafName)
+                                            .multilineTextAlignment(.leading)
+                                        Text(leaf.leafDescription)
+                                            .multilineTextAlignment(.leading)
+                                            .foregroundStyle(.secondary)
+                                    }
                                 }
                             }
                         }

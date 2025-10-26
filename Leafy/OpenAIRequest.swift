@@ -7,6 +7,17 @@
 
 import Foundation
 import UIKit
+import SwiftUI // lets me use appstorage
+
+private enum APIConfig {
+    private static let key = "apiURL"
+    private static let defaultURL = "https://leafyapi.consciousb.one/v1/chat/completions"
+    
+    static var apiURLString: String {
+        get { UserDefaults.standard.string(forKey: key) ?? defaultURL }
+        set { UserDefaults.standard.set(newValue, forKey: key) }
+    }
+}
 
 let proxySecret: String = {
     guard let url = Bundle.main.url(forResource: "proxysecret", withExtension: "txt"),
@@ -90,7 +101,7 @@ func sendImageToAI(
         return
     }
     
-    var req = URLRequest(url: URL(string: "https://leafyapi.consciousb.one/v1/chat/completions")!)
+    var req = URLRequest(url: URL(string: APIConfig.apiURLString)!)
     req.httpMethod = "POST"
     req.setValue("application/json", forHTTPHeaderField: "Content-Type")
     req.setValue(proxySecret, forHTTPHeaderField: "X-Proxy-Secret")
