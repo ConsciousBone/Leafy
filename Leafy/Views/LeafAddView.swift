@@ -36,9 +36,16 @@ struct LeafAddView: View {
     
     // get ai to actually just give json with a decent prompt
     private let prompt = """
-        Respond ONLY with compact JSON: {"name":"", "description":""}
-        No markdown. No code fences. No extra text.
-        """
+    You are identifying a leaf from the provided image.
+    Respond ONLY with compact JSON in this EXACT format:
+    {"name":"", "description":""}
+    
+    Rules for your response:
+    - No markdown. No code fences. No extra text.
+    - The "name" field should include the name of the leaf; NOT just the word 'leaf'.
+    - The "description" field should include a brief description of the leaf, such as its defining visual features.
+    - If you are unsure about the specific name, give the most likely name; not a generic term.
+    """
     
     // fancy func logical stuffs
     private func analyse() {
