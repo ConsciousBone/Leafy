@@ -91,8 +91,6 @@ struct LeafAddView: View {
     var body: some View {
         NavigationStack {
             Form {
-                
-                
                 Section {
                     if let img = image {
                         Image(uiImage: img)
