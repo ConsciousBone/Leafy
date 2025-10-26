@@ -68,6 +68,11 @@ struct LeavesView: View {
                             }
                         }
                     }
+                    .onDelete { indexSet in
+                        withAnimation {
+                            indexSet.map{leafItems[$0]}.forEach(modelContext.delete)
+                        }
+                    }
                 }
                 .navigationTitle("Leaves")
                 .navigationBarTitleDisplayMode(.inline)

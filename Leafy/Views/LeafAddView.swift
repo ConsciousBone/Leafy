@@ -143,6 +143,8 @@ struct LeafAddView: View {
                     .disabled(image == nil || aiName.isEmpty || aiDescription.isEmpty)
                 }
             }
+            .navigationTitle("Add leaf")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
