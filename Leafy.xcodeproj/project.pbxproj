@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21317DE82EAE695000358BAF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 21317DE72EAE694B00358BAF /* README.md */; };
 		2145CDEB2EAC07E000211B43 /* proxysecret.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2145CDEA2EAC07E000211B43 /* proxysecret.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2125994C2EA7FAF5000B4779 /* Leafy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leafy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21317DE72EAE694B00358BAF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2145CDEA2EAC07E000211B43 /* proxysecret.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = proxysecret.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -37,6 +39,7 @@
 		212599432EA7FAF5000B4779 = {
 			isa = PBXGroup;
 			children = (
+				21317DE72EAE694B00358BAF /* README.md */,
 				2145CDEA2EAC07E000211B43 /* proxysecret.txt */,
 				2125994E2EA7FAF5000B4779 /* Leafy */,
 				2125994D2EA7FAF5000B4779 /* Products */,
@@ -117,6 +120,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21317DE82EAE695000358BAF /* README.md in Resources */,
 				2145CDEB2EAC07E000211B43 /* proxysecret.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
