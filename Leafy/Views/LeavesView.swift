@@ -28,9 +28,23 @@ struct LeavesView: View {
             Form {
                 ForEach(leafItems) { leaf in
                     Section {
-                        Text("\(leaf.leafName)")
-                        Text("\(leaf.leafDescription)")
-                            .foregroundStyle(.secondary)
+                        HStack {
+                            if let img = Image(leafData: leaf.leafImageData) {
+                                img
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 48, height: 48)
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                            } else { // if theres somehow no image
+                                Image(systemName: "photo")
+                            }
+                            
+                            VStack {
+                                Text(leaf.leafName)
+                                Text(leaf.leafDescription)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
                     }
                 }
             }
