@@ -25,44 +25,66 @@ struct LeavesView: View {
     
     var body: some View {
         NavigationStack {
-            Form {
-                ForEach(leafItems) { leaf in
-                    Section {
-                        HStack {
-                            if let img = Image(leafData: leaf.leafImageData) {
-                                img
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 48, height: 48)
-                                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                            } else { // if theres somehow no image
-                                Image(systemName: "photo")
-                            }
-                            
-                            VStack {
-                                Text(leaf.leafName)
-                                Text(leaf.leafDescription)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                    }
-                }
-            }
-            .navigationTitle("Leaves")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
+            if leafItems.count == 0 {
+                ContentUnavailableView {
+                    Label("No leaves", systemImage: "leaf")
+                } description: {
+                    Text("You haven't saved any leaves yet.")
+                } actions: {
                     Button {
                         print("adding new leaf")
                         showingAddSheet.toggle()
                     } label: {
-                        Label("Add", systemImage: "plus")
+                        Label("Add leaf", systemImage: "plus")
+                    }
+                    .buttonStyle(.bordered)
+                }
+                .navigationTitle("Leaves")
+                .navigationBarTitleDisplayMode(.inline)
+                .sheet(isPresented: $showingAddSheet) {
+                    LeafAddView()
+                        .presentationDetents([.fraction(0.75)])
+                }
+            } else {
+                Form {
+                    ForEach(leafItems) { leaf in
+                        Section {
+                            HStack {
+                                if let img = Image(leafData: leaf.leafImageData) {
+                                    img
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 48, height: 48)
+                                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                                } else { // if theres somehow no image
+                                    Image(systemName: "photo")
+                                }
+                                
+                                VStack {
+                                    Text(leaf.leafName)
+                                    Text(leaf.leafDescription)
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
+                        }
                     }
                 }
-            }
-            .sheet(isPresented: $showingAddSheet) {
-                LeafAddView()
-                    .presentationDetents([.large])
+                .navigationTitle("Leaves")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            print("adding new leaf")
+                            showingAddSheet.toggle()
+                        } label: {
+                            Label("Add", systemImage: "plus")
+                        }
+                    }
+                }
+                .sheet(isPresented: $showingAddSheet) {
+                    LeafAddView()
+                        .presentationDetents([.fraction(0.75)])
+                }
             }
         }
     }
