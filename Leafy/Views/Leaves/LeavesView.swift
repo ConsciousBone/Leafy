@@ -43,7 +43,7 @@ struct LeavesView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .sheet(isPresented: $showingAddSheet) {
                     LeafAddView()
-                        .presentationDetents([.fraction(0.75)])
+                        .presentationDetents([.fraction(0.75), .large])
                 }
             } else {
                 Form {
@@ -60,9 +60,11 @@ struct LeavesView: View {
                                     Image(systemName: "photo")
                                 }
                                 
-                                VStack {
+                                VStack(alignment: .leading) {
                                     Text(leaf.leafName)
+                                        .multilineTextAlignment(.leading)
                                     Text(leaf.leafDescription)
+                                        .multilineTextAlignment(.leading)
                                         .foregroundStyle(.secondary)
                                 }
                             }

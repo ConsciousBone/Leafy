@@ -91,63 +91,65 @@ struct LeafAddView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section { // photo
+                
+                
+                Section {
                     if let img = image {
                         Image(uiImage: img)
                             .resizable()
                             .scaledToFit()
                             .frame(maxHeight: 250)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
-                        
-                        Button {
-                            showingCamera = true
-                        } label: {
-                            Label("Retake photo", systemImage: "camera")
-                        }
-                    } else {
-                        Text("No image")
-                        
-                        Button {
-                            showingCamera = true
-                        } label: {
-                            Label("Take photo", systemImage: "camera")
-                        }
                     }
-                }
-                
-                Section {
-                    Button {
-                        analyse()
-                    } label: {
-                        if isLoading {
-                            ProgressView()
-                        } else {
-                            Label("Get leaf data", systemImage: "brain")
-                        }
-                    }
-                    .disabled(image == nil || isLoading)
                     
-                    if !errorText.isEmpty { // is error erroring
-                        Text(errorText)
-                    }
-                }
-                
-                Section { // name, ai provided
-                    Text(aiName.isEmpty ? "???" : aiName)
-                }
-                
-                Section { // description, ai provided
-                    Text(aiDescription.isEmpty ? "???" : aiDescription)
-                }
-                
-                Section {
                     Button {
-                        saveLeaf()
-                        presentationMode.wrappedValue.dismiss() // close sheet
+                        showingCamera = true
                     } label: {
-                        Label("Save leaf", systemImage: "checkmark")
+                        Label("Take photo", systemImage: "camera")
                     }
-                    .disabled(image == nil || aiName.isEmpty || aiDescription.isEmpty)
+                }
+                
+                if image != nil {
+                    Section {
+                        Button {
+                            analyse()
+                        } label: {
+                            if isLoading {
+                                ProgressView()
+                            } else {
+                                Label("Get leaf data", systemImage: "wand.and.sparkles")
+                            }
+                        }
+                        .disabled(image == nil || isLoading)
+                        
+                        if !errorText.isEmpty { // is error erroring
+                            Text(errorText)
+                        }
+                    }
+                }
+                
+                if !aiName.isEmpty {
+                    Section { // name, ai provided
+                        Text(aiName.isEmpty ? "???" : aiName)
+                    } header: {
+                        Text("Leaf Name")
+                    }
+                    
+                    Section { // description, ai provided
+                        Text(aiDescription.isEmpty ? "???" : aiDescription)
+                    } header: {
+                        Text("Leaf Description")
+                    }
+                    
+                    Section {
+                        Button {
+                            saveLeaf()
+                            presentationMode.wrappedValue.dismiss() // close sheet
+                        } label: {
+                            Label("Save leaf", systemImage: "checkmark")
+                        }
+                        .disabled(image == nil || aiName.isEmpty || aiDescription.isEmpty)
+                    }
                 }
             }
             .navigationTitle("Add leaf")
