@@ -12,6 +12,12 @@ TODO: add the thing
 ## Video
 TODO: add the thing
 
+# Backend (proxy server)
+The backend is powered by Nginx, running on an Ubuntu Desktop 25.04 VM inside of Proxmox, all hosted locally at my house!    
+It takes traffic from this app, authenticates it with a key, and if the key is correct, forwards the request to OpenAI, returning whatever OpenAI spits out.    
+*Why not use OpenRouter?* I tried, but couldn't figure out how image input works for the life of me, so having previous experience with the OpenAI API, I decided to switch over to that and it worked perfectly first try.  
+For more information on the backend, see [this repo](https://github.com/ConsciousBone/LeafyNginxConfig).
+
 # How to get Leafy
 This is the way I recommend, but there are indeed other ways to sideload the IPA onto your iPhone, such as AltStore or SideStore.  
 1. Install [Sideloadly](https://sideloadly.io/) and all of its requirements; iirc if you're using macOS there are none, but Windows needs you to have iTunes and iCloud installed **not using the Microsoft Store**. The Sideloadly website will have links to all these.  
