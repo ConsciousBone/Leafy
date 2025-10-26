@@ -6,17 +6,32 @@
 //
 
 import SwiftUI
+import UIKit
 import SwiftData
+
+private extension Image {
+    init?(leafData data: Data) {
+        guard let ui = UIImage(data: data) else { return nil }
+        self = Image(uiImage: ui)
+    }
+}
 
 struct LeavesView: View {
     @Environment(\.modelContext) var modelContext
+    @State private var leafPath = [LeafItem]()
     @Query(sort: \LeafItem.leafDate, order: .reverse) var leafItems: [LeafItem]
+    
+    @State private var showingAddSheet = false
     
     var body: some View {
         NavigationStack {
             Form {
-                Section {
-                    Text("a")
+                ForEach(leafItems) { leaf in
+                    Section {
+                        Text("\(leaf.leafName)")
+                        Text("\(leaf.leafDescription)")
+                            .foregroundStyle(.secondary)
+                    }
                 }
             }
             .navigationTitle("Leaves")
@@ -25,10 +40,15 @@ struct LeavesView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         print("adding new leaf")
+                        showingAddSheet.toggle()
                     } label: {
                         Label("Add", systemImage: "plus")
                     }
                 }
+            }
+            .sheet(isPresented: $showingAddSheet) {
+                LeafAddView()
+                    .presentationDetents([.large])
             }
         }
     }
