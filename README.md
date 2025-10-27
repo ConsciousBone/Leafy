@@ -33,7 +33,7 @@ This is the way I recommend, but there are indeed other ways to sideload the IPA
 8. Wait for the app to install to your device, and then launch it! *If this is your first time sideloading an app to your device, you may need to enable Developer Mode in Settings, if this applies to you then your device will prompt you to do so.*
 
 # Inspiration
-Using AI in a project has always been an idea of mine, and item identification also being something I've wanted to have a go at, combined with this week's theme being "Fall", I felt it was a perfect time to build something that takes all of these ideas, and build an app to identify leaves using AI!
+Using AI in a project has always been an idea of mine, and with item identification also being something I've wanted to have a go at, combined with this week's Siege theme being "Fall", I felt it was a perfect time to build something that takes all of these ideas, and build an app to identify leaves using AI!
 
 # Tech stack
 - Swift (what practically every modern iOS app is built in)
