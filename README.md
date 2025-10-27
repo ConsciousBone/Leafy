@@ -8,9 +8,12 @@ If the API requests fail for no apparent reason and you are actually connected t
 
 # Demos
 ## Screenshots
-TODO: add the thing
+<img src="/Screenshots/1.png" width=128> <img src="/Screenshots/2.png" width=128> <img src="/Screenshots/3.png" width=128>
+<img src="/Screenshots/4.png" width=128> <img src="/Screenshots/5.png" width=128> <img src="/Screenshots/6.png" width=128>
+<img src="/Screenshots/7.png" width=128>
 ## Video
-TODO: add the thing
+[YouTube link (unlisted)](https://youtube.com/shorts/ae_wLcLpx6o?feature=share)  
+It's made it a short for some reason ;-;
 
 # Backend (proxy server)
 The backend is powered by Nginx, running on an Ubuntu Desktop 25.04 VM inside of Proxmox, all hosted locally at my house!    
