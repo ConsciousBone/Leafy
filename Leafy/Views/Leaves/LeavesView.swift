@@ -56,9 +56,10 @@ struct LeavesView: View {
                                     if let img = Image(leafData: leaf.leafImageData) {
                                         img
                                             .resizable()
-                                            .scaledToFill()
-                                            .frame(height: 48)
+                                            .scaledToFit()
+                                            .frame(width: 64)
                                             .clipShape(RoundedRectangle(cornerRadius: 8))
+                                            .padding(5)
                                     } else { // if theres somehow no image
                                         Image(systemName: "photo")
                                     }
@@ -69,6 +70,8 @@ struct LeavesView: View {
                                         Text(leaf.leafDescription)
                                             .multilineTextAlignment(.leading)
                                             .foregroundStyle(.secondary)
+                                            .lineLimit(2)
+                                            .truncationMode(.tail)
                                     }
                                 }
                             }
@@ -81,7 +84,6 @@ struct LeavesView: View {
                     }
                 }
                 .navigationTitle("Leaves")
-                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {

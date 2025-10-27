@@ -23,8 +23,7 @@ struct LeafDetailView: View {
                 if let img = Image(leafData: leafItem.leafImageData) {
                     img
                         .resizable()
-                        .scaledToFill()
-                        .frame(height: 250)
+                        .scaledToFit()
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                 } else { // somehow no image
                     Image(systemName: "photo")
@@ -45,5 +44,7 @@ struct LeafDetailView: View {
                 Text("Leaf Description")
             }
         }
+        .navigationTitle(leafItem.leafName)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

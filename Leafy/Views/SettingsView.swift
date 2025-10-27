@@ -29,25 +29,28 @@ struct SettingsView: View {
     ]
     
     var body: some View {
-        Form {
-            Section { // accent
-                Picker(selection: $selectedAccentIndex) {
-                    ForEach(accentColours.indices, id: \.self) { index in
-                        Text(accentColourNames[index])
+        NavigationStack {
+            Form {
+                Section { // accent
+                    Picker(selection: $selectedAccentIndex) {
+                        ForEach(accentColours.indices, id: \.self) { index in
+                            Text(accentColourNames[index])
+                        }
+                    } label: {
+                        Label("Accent Colour", systemImage: "paintpalette")
                     }
-                } label: {
-                    Label("Accent Colour", systemImage: "paintpalette")
+                }
+                
+                Section {
+                    TextField("API URL", text: $apiURL)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
+                        .keyboardType(.URL)
+                } header: {
+                    Text("API URL")
                 }
             }
-            
-            Section {
-                TextField("API URL", text: $apiURL)
-                    .textInputAutocapitalization(.never)
-                    .autocorrectionDisabled()
-                    .keyboardType(.URL)
-            } header: {
-                Text("API URL")
-            }
+            .navigationTitle("Settings")
         }
     }
 }
